@@ -1,0 +1,23 @@
+<div class="section container mt-5">
+  <header class="text-center mb-4">
+    <h1 class="text-primary">Welcome, {{ user?.name }}</h1>
+  </header>
+  
+  <main class="row justify-content-center">
+    <section class="col-md-8 card shadow p-4">
+      <h2 class="card-title text-center mb-4">Profile Details</h2>
+      
+      <p class="card-text p-3 border rounded">
+        <strong>Name:</strong> {{ user?.name }}
+      </p>
+      
+      <p class="card-text p-3 border rounded">
+        <strong>Email:</strong> {{ user?.email }}
+      </p>
+      
+      <p class="card-text p-3 border rounded">
+        <strong>Username:</strong> {{ user?.username }}
+      </p>
+    </section>
+  </main>
+</div>

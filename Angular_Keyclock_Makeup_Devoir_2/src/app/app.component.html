@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Gestion des Produits</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Left menu -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <!-- Produits dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProduits" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Produits
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownProduits">
+            <li>
+              <!-- Show only if user has ADMIN role -->
+              <a class="dropdown-item" routerLink="/makeup" *kaHasRoles="['ADMIN']; checkRealm:true">Lister</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <!-- Right menu -->
+      <ul class="navbar-nav ms-auto m-2">
+
+        <li class="nav-item">
+          <a routerLink="/profile" class="nav-link">My Profile</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownConnexion" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Connexion
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownConnexion">
+            <li *ngIf="!authenticated">
+              <button class="dropdown-item" (click)="login()">Login</button>
+            </li>
+            <li *ngIf="authenticated">
+              <button class="dropdown-item" (click)="logout()">Logout</button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

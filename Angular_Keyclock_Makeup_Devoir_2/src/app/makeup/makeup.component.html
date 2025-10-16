@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Liste des produits de maquillage</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped align-middle text-center">
+          @if(makeupProducts.length!=0){
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Marque</th>
+              <th>Nom</th>
+              <th>Prix</th>
+              <th>Type</th>
+             <!--  <th>Ligne de marque</th>
+              <th>Public cible</th>
+ -->
+              <th>Action</th>
+            </tr>
+          </thead>
+          }
+          <tbody>
+            @for (product of makeupProducts; track product.idMakeup ;)
+            {
+            <tr>
+              <td>{{product.idMakeup}}</td>
+              <td><span >{{product.marque}}</span></td>
+              <td>{{product.nom}}</td>
+              <td><strong>{{ product.prix | currency:'DT'}}</strong></td>
+              <td>{{product.type}}</td>
+           <!--    <td>{{product.brandLine?.nom_ligne}}</td>
+              <td>{{product.brandLine?.public_cible}}</td>  -->            
+             <td>
+                <div class="d-flex justify-content-center gap-2">
+                  <a class="btn btn-sm btn-danger" (click)="supprimerMakeup(product)">Supprimer</a>
+                  <a class="btn btn-sm btn-success" [routerLink]="['/updateMakeup', product.idMakeup]">Modifier</a>
+                </div>
+              </td>
+            </tr>
+            } @empty {
+            <tr>
+              <td colspan="7" class="text-center text-muted">Aucun produit de maquillage trouvé !</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
